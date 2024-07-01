@@ -1,0 +1,44 @@
+
+
+.sub-title {
+    color: #FFFFFFB3;
+    font-family: "Dancing Script", Sans-serif;
+    font-size: 55px;
+    font-weight: 400;
+    text-transform: none;
+    margin-top: 150px;
+    margin-left: -60px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Estilo para captionDelay8 */
+
+
+/* Estilo para fromTop */
+
+/* General box-sizing rule for Elementor */
+.elementor *, .elementor :after, .elementor :before {
+    box-sizing: border-box;
+}
+
+.inicio{
+    margin-top: -80px;
+    background-color:   rgb(3, 17, 145) !important;;
+    margin-left: 0px;
+    width: 1940px;
+    padding: 30px;
+    height: 770px;
+  margin-bottom: -25px!important;
+}
+
+.inicio h1{
+ 
+    color: #ffffff;
+    font-family: "Crimson Pro", Sans-serif;
+    font-size: 95px;
+    font-weight: 800;
+    line-height: 95px;
+    letter-spacing: 3px;
+    margin: 50px 50px 50px 170px;
+}

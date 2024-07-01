@@ -1,0 +1,68 @@
+.carrito-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px; /* Ajusta el margen según sea necesario */
+  }
+  
+  .carrito-header h2 {
+/* Elimina el margen predeterminado del h2 */
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+
+  @media (max-width: 820px) {
+ .carrito-header h2{
+    font-size: 35px !important;
+    margin-left: 25px;
+    margin-top: -5px !important;
+  
+  }
+
+  .carrito .btn-secondary {
+    font-size: 23px !important;
+    margin-top: -15px;
+  }
+
+ .carrito .btn-danger{
+    font-size: 17px !important;;
+    margin-top: 10px;
+  } 
+  .carrito .btn-primary {
+    font-size: 20px !important;
+    margin-top: 15px;
+    margin-left: 30px;
+    width: 70%;
+  }
+
+  }
+
+
+  @media (max-width: 480px) {
+.carrito-header h2{
+  font-size: 25px !important;
+  margin-left: -25px;
+  margin-top: -10px !important;
+}
+
+.carrito .btn-secondary {
+  font-size: 17px !important;
+  margin-top: -25px;
+}
+.carrito .btn-danger{
+  font-size: 15px !important;
+  margin-top: 15px;
+  margin-bottom: 7px;
+} 
+
+
+.carrito .btn-primary {
+  font-size: 13px !important;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+
+
+  }

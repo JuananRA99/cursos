@@ -1,0 +1,79 @@
+  .forum {
+
+    margin-top:0px;
+    background-color:   rgb(3, 17, 145) !important;;
+    margin-left: 0px;
+    width: 1940px;
+    padding: 30px;
+    height: 770px;
+    margin-bottom: -25px!important;
+}
+  
+
+.foro-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    height: 600px !important;
+  }
+  
+  .foro-container h2 {
+    margin-top: 80px;
+    color: #333;
+    margin-bottom: 30px !important;
+    margin-left: 100px;
+    font-size: 50px;
+  }
+  .icon-left {
+    margin-top: -2px;
+    margin-right: 10px; /* Ajusta este valor según sea necesario */
+  }
+
+  .foro-container .form-group{
+    width: 10px;
+  }
+  
+  .foro-container .form-group label {
+    color: #555;
+  }
+  
+  .foro-container .form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .foro-container .btn {
+    border-radius: 5px;
+  width: 200px;
+  height: 100;
+  margin-left: 100px;
+  }
+  
+  .foro-container .temas {
+    margin-top: 20px;
+    margin-left: 100px;
+  }
+  
+  .foro-container .list-group-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+
+    width: 800px;
+    height: 60px;
+  }
+  
+  .foro-container .list-group-item a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .foro-container .list-group-item a:hover {
+    text-decoration: underline;
+  }
+
+  .temas h3{
+    font-size: 35px !important;
+  }

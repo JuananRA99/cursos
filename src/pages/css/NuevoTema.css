@@ -1,0 +1,53 @@
+
+
+.temita{
+    margin-top:0px;
+    background-color:   rgb(3, 17, 145) !important;
+    margin-left: 0px;
+    width: 1940px;
+    padding: 30px;
+    height: 770px;
+    margin-bottom: -25px!important;
+    
+}
+
+
+
+.nuevo-tema-container {
+   
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 600px !important;
+  }
+  
+  .nuevo-tema-container h2 {
+  margin-top: 60px;
+    color: #333;
+    margin-left: 550px;
+  }
+  
+  .nuevo-tema-container .form-group label {
+    color: #555;
+   margin-top: 60px !important;
+   margin-left: 150px;
+  }
+  
+  .nuevo-tema-container .form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-left: 150px !important;
+    width: 1000px;
+  }
+
+  
+  .nuevo-tema-container textarea{
+   width: 1000px !important;
+  }
+  
+  .nuevo-tema-container .btn {
+    border-radius: 5px;
+    margin-top: 40px !important;
+   margin-left: 550px !important;
+  }

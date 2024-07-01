@@ -1,0 +1,51 @@
+
+.cursos-venta{
+  margin-top: -80px;
+  background-color:   rgb(3, 17, 145) !important;;
+  margin-left: 0px;
+  width: 1920px;
+  padding: 30px;
+  height: 770px;
+margin-bottom: -25px!important;
+
+}
+
+.cursos-venta h2{
+
+  margin-top: 160px;
+  color: white !important;
+  text-align: center !important;
+}
+
+
+.card {
+  margin-top: 100px !important;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    margin-bottom: 15px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }

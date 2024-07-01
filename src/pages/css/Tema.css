@@ -1,0 +1,65 @@
+
+.theme {
+
+    margin-top:0px;
+    background-color:   rgb(3, 17, 145) !important;;
+    margin-left: 0px;
+    width: 1940px;
+    padding: 30px;
+    height: 770px;
+    margin-bottom: -25px!important;
+}
+  
+
+.tema-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 600px !important;
+  }
+  
+  .tema-container h2 {
+    color: #333;
+    font-size: 45px !important;
+    margin-left: 150px;
+  }
+  .tema-container p{
+
+    margin-left: 150px;
+  }
+  
+  .tema-container h3 {
+    font-size: 35px !important;
+  }
+  .tema-container .comentarios {
+    margin-top: 20px;
+    margin-left: 150px;
+  }
+  
+  .tema-container .list-group-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+   width: 800px !important;
+  }
+  
+  .tema-container .form-group label {
+    margin-top: 20px !important;
+    color: #555;
+    margin-left: 150px;
+  }
+  
+  .tema-container .form-control {
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 800px !important;
+    margin-left: 150px;
+  }
+  
+  .tema-container .btn {
+
+    margin-top: 40px !important;
+    margin-left: 150px;
+    border-radius: 5px;
+  }
