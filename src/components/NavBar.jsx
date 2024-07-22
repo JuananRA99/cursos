@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Carrito from '../pages/Carrito';
-import { GrCart } from 'react-icons/gr';
+import { FaCartArrowDown } from "react-icons/fa6";
 import { useState } from 'react';
 import '../index.css';
-
+import {  useAuth } from '../context/AuthContext';
 const NavBar = ({ auth, userEmail, cartItems, toggleCart, isCartOpen, handleLogout, removeFromCart, handleCloseCart }) => {
-  const [isNavOpen, setIsNavOpen] = useState(false);
 
+
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const { isAuthenticated } = useAuth();
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
   };
@@ -32,7 +34,7 @@ const NavBar = ({ auth, userEmail, cartItems, toggleCart, isCartOpen, handleLogo
           </li>
           <li className="nav-item">
             <button className="nav-link btn btn-link" onClick={toggleCart}>
-              <GrCart size={28} /> ({cartItems.length})
+              <FaCartArrowDown size={28} /> ({cartItems.length})
             </button>
             {isCartOpen && (
               <div className="cart-dropdown">

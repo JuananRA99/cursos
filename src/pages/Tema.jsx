@@ -1,75 +1,126 @@
-import PropTypes from 'prop-types';
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+// Tema.jsx (fragmento relevante)
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useThemes } from '../context/themesContext';
 import './css/Tema.css';
+import PropTypes from 'prop-types';
 
-const Tema = ({ temas, setTemas }) => {
+const Tema = ({ userEmail }) => {
   const { id } = useParams();
-  const tema = temas.find((t) => t.id === parseInt(id));
-  const [nuevoComentario, setNuevoComentario] = useState('');
+  const navigate = useNavigate();
+  const { getThemeById, updateTheme, deleteTheme, addComment } = useThemes();
+  const [tema, setTema] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [nuevoComentario, setNuevoComentario] = useState("");
 
-  const agregarComentario = (e) => {
-    e.preventDefault();
-    if (nuevoComentario.trim()) {
-      const updatedTemas = temas.map((t) =>
-        t.id === tema.id
-          ? { ...t, comentarios: [...t.comentarios, nuevoComentario] }
-          : t
-      );
-      setTemas(updatedTemas);
-      setNuevoComentario('');
+  useEffect(() => {
+    const fetchTheme = async () => {
+      try {
+        const fetchedTheme = await getThemeById(id);
+        setTema(fetchedTheme);
+        setTitle(fetchedTheme.title || "");
+        setDescription(fetchedTheme.description || "");
+      } catch (err) {
+        setError('Error fetching theme');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTheme();
+  }, [id, getThemeById]);
+
+  const handleUpdate = async () => {
+    if (tema) {
+      const updatedTheme = {
+        ...tema,
+        title,
+        description,
+      };
+      await updateTheme(tema._id, updatedTheme);
+      setTema(updatedTheme);
     }
   };
 
-  if (!tema) {
-    return <div className="container mt-5">Tema no encontrado.</div>;
-  }
+  const handleDelete = async () => {
+    if (tema) {
+      await deleteTheme(tema._id);
+      navigate('/foro');
+    }
+  };
+
+  const agregarComentario = async (e) => {
+    e.preventDefault();
+    if (tema && nuevoComentario.trim()) {
+      const comment = {
+        email: userEmail,
+        comentario: nuevoComentario,
+      };
+      await addComment(tema._id, comment);
+      setNuevoComentario("");
+    }
+  };
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
+  if (!tema) return <p>No theme found</p>;
 
   return (
-    <div className='theme'>
-    <div className="tema-container container mt-5">
-      <h2>{tema.titulo}</h2>
-      <hr />
-      <p>{tema.texto}</p>
-      <div className="comentarios mt-4">
-        <h3>Comentarios:</h3>
-        <ul className="list-group">
-          {tema.comentarios.map((comentario, index) => (
-            <li key={index} className="list-group-item">
-              {comentario}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <form onSubmit={agregarComentario} className="mt-4">
-        <div className="form-group">
-          <label htmlFor="nuevoComentario">Nuevo comentario:</label>
-          <input
-            type="text"
-            className="form-control"
-            id="nuevoComentario"
-            value={nuevoComentario}
-            onChange={(e) => setNuevoComentario(e.target.value)}
-            required
-          />
+    <div className="theme">
+      <div className="tema-container container mt-5">
+        <div className="tema-header">
+          <p><strong>Autor:</strong> {tema.user.email} | <strong>Fecha:</strong> {new Date(tema.date).toLocaleString()}</p>
         </div>
-        <button type="submit" className="btn btn-primary mt-2">Agregar Comentario</button>
-      </form>
-    </div>
+        <div className="tema-details">
+          <h3>{tema.title}</h3>
+          <p>{tema.description}</p>
+        </div>
+
+        <hr />
+
+        <form onSubmit={agregarComentario} className="mt-4">
+          <div className="form-group">
+            <label htmlFor="nuevoComentario">Nuevo comentario:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="nuevoComentario"
+              value={nuevoComentario}
+              onChange={(e) => setNuevoComentario(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit" className="btn btn-primary mt-2">
+            Agregar Comentario
+          </button>
+        </form>
+
+        <div className="comentarios mt-4">
+          <h3>Comentarios:</h3>
+          {tema.comentarios && tema.comentarios.length > 0 ? (
+            <ul className="list-group">
+              {tema.comentarios.map((comentario, index) => (
+                <li key={index} className="list-group-item">
+                  <strong>{comentario.email}:</strong> {comentario.comentario}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>No hay comentarios aún.</p>
+          )}
+        </div>
+
+       
+      </div>
     </div>
   );
 };
 
 Tema.propTypes = {
-  temas: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      titulo: PropTypes.string.isRequired,
-      texto: PropTypes.string.isRequired,
-      comentarios: PropTypes.arrayOf(PropTypes.string).isRequired
-    })
-  ).isRequired,
-  setTemas: PropTypes.func.isRequired,
+  userEmail: PropTypes.string.isRequired,
 };
 
 export default Tema;
